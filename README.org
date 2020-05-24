@@ -1,0 +1,41 @@
+#+TITLE: README file for the camshell project
+#+AUTHOR: Frantz
+
+* introduction
+
+The goal is to write here a generic tool to offer a shell-like interface in order to interact with devices like cameras. Might want to use it as well with deformable mirrors, but that is not the focus here. The shell is made to be launched from a named tmux session so that other processes can send commands to it.
+
+* operation
+
+** start a named tmux session
+
+Use the following command, to start a tmux session with a window labeled "camshell". With that tmux session started, launch the freshly compiled camshell executable. At this point you should be good to go.
+
+#+BEGIN_SRC bash
+  tmux new -s camshell
+  ./camshell
+#+END_SRC
+
+
+** interact with the server from within the tmux session
+
+The camshell executable offers a shell like interface with a limited number of commands to interact with a camera. Typing "help" will give a list of the possible commands and their description. One should be able to start and stop the continuous acquisition mode of the camera, or interact with its cooling.
+
+** interact with the server from an external program
+
+This shell is only interesting if another client program can use it to interact with the camera. This is made possible by the terminal multiplexor tmux. The client must be able to send system commands that are directed to the named tmux session.
+
+For instance, the following command, written in a separate terminal server, should display the help menu inside the camshell window.
+
+#+BEGIN_SRC bash
+  tmux send-keys -t camshell "help" C-m
+#+END_SRC
+
+** queries
+
+Sometimes, one might want to ask a question to a device, such as what is its current status, whether it is currently acquiring images, at what frame rate and for what exposure time, ... that sort of things. An external process *cannot* recover information from the camshell session inside the tmux. There are two options:
+
+- the relevant piece of information can be written to a named pipe (fifo). If this is the chosen approach, make sure to be there to listen what is happening to the fifo.
+- since you seem to care about it, this piece information would probably better be written to the shared memory data structure, along with the image. The shared memory data structure indeed enables the use of keywords. These are the perfect place for things like frame rate, integration time,
+
+
