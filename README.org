@@ -11,7 +11,7 @@ This code relies on the [[https://github.com/milk-org/ImageStreamIO][ImageStream
 
 * compilation
 
-Refer to the provided Makefile and ensure that you have all the required libraries installed. I am dabbling in the use of the curses library. Assuming that all is in place, simply compile the code with:
+Refer to the provided [[./Makefile][Makefile]] and ensure that you have all the required libraries installed. I am dabbling in the use of the curses library. Assuming that all is in place, simply compile the code with:
 
 #+BEGIN_SRC bash
   make
