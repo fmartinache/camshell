@@ -9,6 +9,14 @@ This is not a fully-fledged project, but something that will serve as the starti
 
 This code relies on the [[https://github.com/milk-org/ImageStreamIO][ImageStreamIO]] library developed by O. Guyon that is a part of the [[https://github.com/milk-org][milk-org]] organisation. Most of my software projects in python (like [[http://github.com/fmartinache/xaosim][XAOSIM]]) use read/write access to shared memory. The only original code available here is the [[./camshell.c][camshell.c]] file that outlines the shell.
 
+* compilation
+
+Refer to the provided Makefile and ensure that you have all the required libraries installed. I am dabbling in the use of the curses library. Assuming that all is in place, simply compile the code with:
+
+#+BEGIN_SRC bash
+  make
+#+END_SRC
+
 * operation
 
 ** start a named tmux session
