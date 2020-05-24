@@ -1,9 +1,13 @@
 #+TITLE: README file for the camshell project
-#+AUTHOR: Frantz
+#+AUTHOR: Frantz Martinache
 
 * introduction
 
-The goal is to write here a generic tool to offer a shell-like interface in order to interact with devices like cameras. Might want to use it as well with deformable mirrors, but that is not the focus here. The shell is made to be launched from a named tmux session so that other processes can send commands to it.
+The goal is to write here a generic startup tool to offer a shell-like interface to a local server interacting with devices like cameras. One might eventually want to use it as well to control deformable mirrors, but that is not the primary focus at this point. The shell is made to be launched from a named tmux session so that other processes can send commands to it.
+
+This is not a fully-fledged project, but something that will serve as the starting point for specialized projects to control specific cameras. My motivation for having this is to have my own standard way of controling cameras like the iXon from Andor (used for the AO@C2PU project) and a CRED1 from First Light Imaging (for the KERNEL project).
+
+This code relies on the [[https://github.com/milk-org/ImageStreamIO][ImageStreamIO]] library developed by O. Guyon that is a part of the [[https://github.com/milk-org][milk-org]] organisation. Most of my software projects in python (like [[http://github.com/fmartinache/xaosim][XAOSIM]]) use read/write access to shared memory. The only original code available here is the [[./camshell.c][camshell.c]] file that outlines the shell.
 
 * operation
 
